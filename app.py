@@ -170,3 +170,4 @@ maak_tabel()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+#kill yoursself wth am i supposed to change without breaking the app
