@@ -26,6 +26,55 @@ wat je in dit vak leert.
 
 ---
 
+# Storingsmelder - Cloud Computing
+
+Een klein meldingsysteem voor storingen. Je meldt een storing via een formulier, je ziet de openstaande meldingen in een lijst, en je sluit ze af als ze opgelost zijn.
+
+Deze applicatie is het startpunt voor **Cloud Computing**. Dit project is gecontaineriseerd met Docker en PostgreSQL als database.
+
+---
+
+## Handleiding: Applicatie vanaf nul starten
+
+Volg onderstaande stappen om de applicatie en de database lokaal op te starten vanaf een schone installatie.
+
+## Repository klonen
+Kloon de repository naar je lokale machine en navigeer naar de projectmap:
+
+```bash
+git clone https://github.com/JBE-1988/cloud-computing.git
+cd cloud-computing
+
+Maak een lokaal .env bestand aan op basis van het meegeleverde .env.example bestand:
+
+cp .env.example .env
+
+Open het .env bestand in je gewenste editor en vul de gewenste waarden in voor de database:
+
+POSTGRES_USER=storingsmelder
+POSTGRES_PASSWORD=secretpassword
+POSTGRES_DB=storingsmelder
+
+Start het hele systeem (de Python applicatie en de PostgreSQL database) op in de achtergrond via Docker Compose:
+
+docker compose up -d
+
+Controleer of beide containers draaien en of de database de status (healthy) heeft bereikt:
+
+docker compose ps
+
+Open je webbrowser en navigeer naar:
+
+http://localhost:8000
+
+Stoppen en containers verwijderen (met behoud van data in de volume):
+
+docker compose down
+
+Stoppen en alle volumes/data volledig wissen:
+
+docker compose down -v
+
 ## Wat de applicatie nodig heeft
 
 | | |
